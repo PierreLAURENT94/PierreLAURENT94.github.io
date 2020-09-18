@@ -1,5 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    cursor: url("cursor.png"), pointer;
+
 }
 
 header {
@@ -97,14 +99,6 @@ h3 {
     background-color: #2874a6;
 }
 
-.infos2 {
-    background-color: #ebf5fb;
-
-}
-
-.infos ul {
-    font-size: 24px;
-}
 th {
     padding: 10px;
     background-color: #2874a6;
@@ -236,4 +230,12 @@ tr:nth-child(odd) {
     color: white;
     font-weight: bold;
     background-color: #2874a6;
+}
+
+#photo:hover {
+    float: center;
+    border: dashed #2874a6 6px;
+    width: 225px;
+    margin: 0px;
+    padding: 0px;
 }
