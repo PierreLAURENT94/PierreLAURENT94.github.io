@@ -19,6 +19,7 @@ function changer_theme() {
         document.documentElement.style.setProperty("--couleur1", "#FF7B00");
         document.documentElement.style.setProperty("--couleur2", "#FAE6D4");
         document.documentElement.style.setProperty("--couleur3", "#FAE6D43A");
+        document.documentElement.style.setProperty("--cible", "#000000");
         document.getElementsByTagName("h2")[0].style.color = "black";
         document.getElementsByTagName("body")[0].style.cursor = 'url("cursorO.png"), pointer';
         document.getElementById("icon").href = "faviconO.ico";
@@ -27,6 +28,7 @@ function changer_theme() {
         document.documentElement.style.setProperty("--couleur1", "#000000");
         document.documentElement.style.setProperty("--couleur2", "#454545");
         document.documentElement.style.setProperty("--couleur3", "#4545453A");
+        document.documentElement.style.setProperty("--cible", "#454545");
         document.getElementsByTagName("h2")[0].style.color = "white";
         document.getElementsByTagName("body")[0].style.cursor = 'url("cursorN.png"), pointer';
         document.getElementById("icon").href = "faviconN.ico";
@@ -35,6 +37,7 @@ function changer_theme() {
         document.documentElement.style.setProperty("--couleur1", "#2874a6");
         document.documentElement.style.setProperty("--couleur2", "#ebf5fb");
         document.documentElement.style.setProperty("--couleur3", "#ebf5fb3a");
+        document.documentElement.style.setProperty("--cible", "#000000");
         document.getElementsByTagName("h2")[0].style.color = "black";
         document.getElementsByTagName("body")[0].style.cursor = 'url("cursorB.png"), pointer';
         document.getElementById("icon").href = "faviconB.ico";
@@ -205,7 +208,8 @@ function MettreAJourLeCompteur() {
 var score = 0;
 var numerocible = 0;
 var tempsRestant = 30;
-var record = 0;
+var record = getCookie("record");
+document.getElementById("jeu_record").innerHTML = "RECORD DU NAVIGATEUR: " + record;
 
 function jeuAjouter() {
     if(this.id == numerocible) {
@@ -249,12 +253,39 @@ function stop() {
     }
     if(score > record) {
         record = score;
+        setCookie("record", record, 90);
         document.getElementById("jeu_record").innerHTML = "RECORD DU NAVIGATEUR: " + record;
     }
     score = 0;
     numerocible = 0;
     tempsRestant = 30;
 }
+
+// ||| ctrl+c et ctrl+v 
+// vvv
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+// ------
 
 /*
 var nom = "LAURENT";
