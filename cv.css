@@ -197,7 +197,7 @@ tr:nth-child(odd) {
     background-color: var(--couleur3);
 }
 
-#UneLigneUl li {
+#UneLigneUl li, #UneLigneUlLoisir li{
     display: inline;
     padding: 30px;
 }
@@ -238,7 +238,6 @@ tr:nth-child(odd) {
 }
 
 #photo:hover {
-    float: center;
     border: dashed var(--couleur1) 6px;
     width: 225px;
     margin: 0px;
@@ -329,7 +328,7 @@ input[type=submit]:hover {
 }
 
 .stage {
-    display: inline;
+    display: inline-block;
     font-size: 32px;
     background-color: var(--couleur1);
     color: white;
@@ -337,4 +336,72 @@ input[type=submit]:hover {
     padding: 8px;
     border-radius: 5px;
     margin-left: 2px;
+    margin-bottom: 6px;
+}
+
+@media screen and (max-width: 780px) { 
+    #UneLigneUl li {
+        text-align: center;
+        display: block;
+        padding: 0px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 1700px) { 
+    .stage {
+        display: block;
+        width: 100px;
+        text-align: center; 
+    }
+}
+
+@media screen and (max-width: 850px) { 
+    aside {
+        float: none;
+        width: 100%;
+        padding: 0px;
+    }
+    section {
+        padding: 0px;
+        width: 100%
+    }
+    .stage {
+        display: inline-block;
+    }
+}
+
+.jeu_cible {
+    display: inline-block;
+}
+
+#tempsbar {
+    width: 205px;
+    -webkit-appearance: none;
+    padding-bottom: 5px;
+}
+
+::-webkit-progress-bar {
+    background-color: var(--couleur2);
+}
+
+::-webkit-progress-value {
+    background-color: var(--couleur1);
+}
+
+#jeu_score {
+    color: var(--couleur1);
+    font-weight: bold;
+    font-size: 26px;
+}
+
+#jeu_record {
+    color: var(--couleur1);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+}
+
+#mini-jeu {
+    display: none;
 }

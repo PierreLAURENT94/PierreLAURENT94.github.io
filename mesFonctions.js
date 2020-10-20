@@ -57,18 +57,28 @@ function changerSection() {
         document.getElementById("inscription").style.display = "none";
         document.getElementById("connexion").style.display = "none";
         document.getElementById("mon_cv").style.display = "block";
+        document.getElementById("mini-jeu").style.display = "none";
         document.getElementsByTagName("title")[0].innerHTML = "Pierre LAURENT • Mon CV";
     }
     else if(this.id == "nav_inscription") {
         document.getElementById("inscription").style.display = "block";
         document.getElementById("connexion").style.display = "none";
         document.getElementById("mon_cv").style.display = "none";
+        document.getElementById("mini-jeu").style.display = "none";
         document.getElementsByTagName("title")[0].innerHTML = "Pierre LAURENT • Inscription";
+    }
+    else if(this.id == "nav_mini-jeu") {
+        document.getElementById("inscription").style.display = "none";
+        document.getElementById("connexion").style.display = "none";
+        document.getElementById("mon_cv").style.display = "none";
+        document.getElementById("mini-jeu").style.display = "block";
+        document.getElementsByTagName("title")[0].innerHTML = "Pierre LAURENT • Mini jeu";
     }
     else {
         document.getElementById("inscription").style.display = "none";
         document.getElementById("connexion").style.display = "block";
         document.getElementById("mon_cv").style.display = "none";
+        document.getElementById("mini-jeu").style.display = "none";
         document.getElementsByTagName("title")[0].innerHTML = "Pierre LAURENT • Connexion";
     }
 }
@@ -192,6 +202,59 @@ function MettreAJourLeCompteur() {
     document.getElementById("stage_secondes").innerHTML = Math.floor((différence / (1000))%60) + "S";
     setTimeout(MettreAJourLeCompteur, 1000); 
 }
+var score = 0;
+var numerocible = 0;
+var tempsRestant = 30;
+var record = 0;
+
+function jeuAjouter() {
+    if(this.id == numerocible) {
+        score = score + 1;
+        document.getElementById("jeu_score").innerHTML = "SCORE: " + score;
+        changerCible();
+    }
+    else if(numerocible == 0) {
+        changerCible();
+        chrono();
+        document.getElementById("jeu_score").innerHTML = "SCORE: " + score;
+    }
+}
+
+function changerCible() {
+    numerocible = Math.floor(Math.random() * 9) + 1;
+    for(var tour = 0; tour <= 8; tour++) {
+        if(numerocible == tour + 1) {
+            document.getElementsByClassName("jeu_cible")[tour].style.visibility = "visible";
+        }
+        else {
+            document.getElementsByClassName("jeu_cible")[tour].style.visibility = "hidden";
+        }
+    }
+}
+
+function chrono() {
+    tempsRestant = tempsRestant - 1;
+    document.getElementById("tempsbar").value = tempsRestant;
+    if(tempsRestant == 0) {
+        stop();
+    }
+    else {
+        setTimeout(chrono, 1000);
+    }
+}
+
+function stop() {
+    for(var tour = 0; tour <= 8; tour++) {
+        document.getElementsByClassName("jeu_cible")[tour].style.visibility = "visible";
+    }
+    if(score > record) {
+        record = score;
+        document.getElementById("jeu_record").innerHTML = "RECORD DU NAVIGATEUR: " + record;
+    }
+    score = 0;
+    numerocible = 0;
+    tempsRestant = 30;
+}
 
 /*
 var nom = "LAURENT";
@@ -213,6 +276,10 @@ document.getElementById("theme_noir").addEventListener("click", changer_theme);
 document.getElementById("nav_cv").addEventListener("click", changerSection);
 document.getElementById("nav_inscription").addEventListener("click", changerSection);
 document.getElementById("nav_connexion").addEventListener("click", changerSection);
+document.getElementById("nav_mini-jeu").addEventListener("click", changerSection);
 document.getElementsByTagName("form")[0].addEventListener("submit", VerifierFormulaireInscription);
 document.getElementById("mdp1").addEventListener("input", VerifierMotDePasse);
 MettreAJourLeCompteur();
+for(var tour = 0; tour <= 8; tour++) {
+    document.getElementsByClassName("jeu_cible")[tour].addEventListener("click", jeuAjouter);
+}
