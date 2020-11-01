@@ -248,6 +248,7 @@ function chrono() {
 }
 
 function stop() {
+    alert("Score final: " + score);
     for(var tour = 0; tour <= 8; tour++) {
         document.getElementsByClassName("jeu_cible")[tour].style.visibility = "visible";
     }
