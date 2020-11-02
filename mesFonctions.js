@@ -207,6 +207,7 @@ function MettreAJourLeCompteur() {
 }
 var score = 0;
 var numerocible = 0;
+var numerocibleavant = 0;
 var tempsRestant = 30;
 var record = getCookie("record");
 document.getElementById("jeu_record").innerHTML = "RECORD DU NAVIGATEUR: " + record;
@@ -226,13 +227,19 @@ function jeuAjouter() {
 
 function changerCible() {
     numerocible = Math.floor(Math.random() * 9) + 1;
-    for(var tour = 0; tour <= 8; tour++) {
-        if(numerocible == tour + 1) {
-            document.getElementsByClassName("jeu_cible")[tour].style.visibility = "visible";
-        }
-        else {
-            document.getElementsByClassName("jeu_cible")[tour].style.visibility = "hidden";
-        }
+    if(numerocible == numerocibleavant){
+      changerCible();
+    }
+    else{
+      for(var tour = 0; tour <= 8; tour++) {
+          if(numerocible == tour + 1) {
+              document.getElementsByClassName("jeu_cible")[tour].style.visibility = "visible";
+          }
+          else {
+              document.getElementsByClassName("jeu_cible")[tour].style.visibility = "hidden";
+          }
+      }
+      numerocibleavant = numerocible
     }
 }
 
