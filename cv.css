@@ -426,6 +426,12 @@ input[type=submit]:hover {
 }
 
 .input_control:hover {
-    background-color: var(--couleur2);
+    background-color: var(--couleur2) !important;
     cursor: pointer;
+}
+
+#allerenhaut {
+    float: right;
+    padding-right: 40px;
+    font-weight: bold;
 }

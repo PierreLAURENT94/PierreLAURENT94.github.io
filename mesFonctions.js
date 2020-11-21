@@ -24,6 +24,8 @@ function changer_theme() {
         document.getElementsByTagName("body")[0].style.cursor = 'url("cursorO.png"), pointer';
         document.getElementById("icon").href = "faviconO.ico";
         couleurFinAnim = "#000000";
+        document.getElementById("playpause").style.backgroundColor = "#00000000";
+        document.getElementById("stop").style.backgroundColor = "#00000000";
     }
     else if(this.id == "theme_noir") {
         document.documentElement.style.setProperty("--couleur1", "#000000");
@@ -34,6 +36,8 @@ function changer_theme() {
         document.getElementsByTagName("body")[0].style.cursor = 'url("cursorN.png"), pointer';
         document.getElementById("icon").href = "faviconN.ico";
         couleurFinAnim = "#454545";
+        document.getElementById("playpause").style.backgroundColor = "white";
+        document.getElementById("stop").style.backgroundColor = "white";
     }
     else {
         document.documentElement.style.setProperty("--couleur1", "#2874a6");
@@ -44,6 +48,8 @@ function changer_theme() {
         document.getElementsByTagName("body")[0].style.cursor = 'url("cursorB.png"), pointer';
         document.getElementById("icon").href = "faviconB.ico";
         couleurFinAnim = "#000000";
+        document.getElementById("playpause").style.backgroundColor = "#00000000";
+        document.getElementById("stop").style.backgroundColor = "#00000000";
     }
 }
 
