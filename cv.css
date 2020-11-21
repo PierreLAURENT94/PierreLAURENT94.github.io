@@ -413,3 +413,19 @@ input[type=submit]:hover {
     position: absolute;
     z-index: -1;
 }
+
+#lecteur_video {
+    height: 81px;
+    float: right;
+}
+
+.input_control {
+    width: 18px;
+    display: block;
+    margin: 5px;
+}
+
+.input_control:hover {
+    background-color: var(--couleur2);
+    cursor: pointer;
+}

@@ -37,11 +37,28 @@
                 <li><a href="https://www.w3schools.com/" target="_blank">w3schools</a></li>
                 <li><a href="https://www.b4x.com/android/forum/" target="_blank">B4X</a></li>
             </ul>
+            <h3>Vidéo:</h3>
+            <video controls width="100%" poster="poster.jpg">
+                <source src="video.mp4" type="video/mp4"/>
+                <source src="video.ogg" type="video/ogg"/>
+                De grâce, quel "navigateur" utilisiez-vous pour qu'il ne soit pas capable de gérer la vidéo !?
+            </video>
         </aside>
         <section class="animate__animated animate__zoomIn">
             <div id="mon_cv">
                 <div class="infos">
-                    <span class="anim"><img src="photo.jpg" alt="photo de moi" id="photo" class="animate__animated animate__flipInY animate__delay-1s" /></span>
+                    <span class="anim">
+                        <div id="lecteur_video">
+                            <video width="100%" poster="photo.jpg" class="animate__animated animate__flipInY animate__delay-1s" id="photo">
+                                <source src="cv_video_fr.mp4" type="video/mp4" id="videosrc"/>
+                                De grâce, quel "navigateur" utilisiez-vous pour qu'il ne soit pas capable de gérer la vidéo !?
+                            </video>
+                            <img src="play.png" class="input_control" id="playpause"/>
+                            <img src="stop.png" class="input_control" id="stop"/>
+                            <img src="fr.png" class="input_control" id="fr"/>
+                            <img src="en.png" class="input_control" id="en"/>
+                        </div>
+                    </span>
                     <h2>
                     Pierre LAURENT
                     </h2>
@@ -917,5 +934,6 @@
         </footer>
         <script src="particles.min.js"></script>
         <script src="mesFonctions.js"></script>
+        <script src="video.js"></script>
     </body>
 </html>
