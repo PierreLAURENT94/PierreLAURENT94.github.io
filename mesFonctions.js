@@ -450,3 +450,26 @@ particlesJS('particles-js',
     "retina_detect": true,
   }
 );
+
+var jawaoff = true;
+jawa_audio = document.getElementById("jawa_audio");
+
+function Jawa() {
+  if(jawaoff) {
+    document.documentElement.style.setProperty("--jawa1", "url('jawa_1.gif')");
+    document.documentElement.style.setProperty("--jawa2", "url('jawa_2.gif')");
+    jawaoff = false;
+    document.getElementById("theme_jawa").style.border = "darkred solid 2px";
+    jawa_audio.play();
+  }
+  else{
+    document.documentElement.style.setProperty("--jawa1", "none");
+    document.documentElement.style.setProperty("--jawa2", "none");
+    jawaoff = true;
+    document.getElementById("theme_jawa").style.border = "white solid 2px";
+    jawa_audio.pause();
+  }
+}
+
+document.getElementById("theme_jawa").addEventListener("click", Jawa);
+

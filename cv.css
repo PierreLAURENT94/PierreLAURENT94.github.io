@@ -3,6 +3,8 @@
     --couleur2: #ebf5fb;
     --couleur3: #ebf5fb3a;
     --cible: #000000;
+    --jawa1: none;
+    --jawa2: none;
 }
 
 body {
@@ -421,8 +423,9 @@ input[type=submit]:hover {
 
 .input_control {
     width: 18px;
+    height: 18px;
     display: block;
-    margin: 5px;
+    margin: 4px;
 }
 
 .input_control:hover {
@@ -434,4 +437,32 @@ input[type=submit]:hover {
     float: right;
     padding-right: 40px;
     font-weight: bold;
+}
+
+#theme_jawa {
+    border: white solid 2px;
+    margin: 3px;
+    width: 16px;
+    height: 16px;
+    display: inline;
+    float: left;
+}
+
+#theme_jawa:hover {
+    border: white dashed 2px;
+    width: 36px;
+    height: 36px;
+}
+
+body, header, aside, section, footer, .fond_bleu, div{
+    background-image: var(--jawa1);
+    background-size: 40%;
+}
+
+header:hover, aside:hover, section:hover, footer:hover, .fond_bleu:hover, div:hover{
+    background-image: var(--jawa2);
+}
+
+#jawa_audio {
+    display: none;
 }
