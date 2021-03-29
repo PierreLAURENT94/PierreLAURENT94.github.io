@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>Money scaling</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="parametres">
+                <h2>Money Scaling</h2>
+                <input type="number" id="argent" min="5" step="5" value="385"/>
+                <br/>
+                <mark>
+                    <input type="checkbox" id="b200cb" checked/>
+                    <label for="scales">200</label>
+                </mark>
+                <br/>
+                <mark>
+                    <input type="checkbox" id="b100cb" checked/>
+                    <label for="scales">100</label>
+                </mark>
+                <br/>
+                <mark>
+                    <input type="checkbox" id="b50cb" checked/>
+                    <label for="scales">50</label>
+                </mark>
+                <br/>
+                <mark>
+                    <input type="checkbox" id="b20cb" checked/>
+                    <label for="scales">20</label>
+                </mark>
+                <br/>
+                <mark>
+                    <input type="checkbox" id="b10cb" checked/>
+                    <label for="scales">10</label>
+                </mark>
+                <br/>
+                <input type="button" id="appliquer" value="Appliquer"/>
+                <h4>Pierre LAURENT • Mars 2021</h4>
+            </div>
+            <div id="visualisation">
+                <div class="money b200"></div>
+                <div class="money b100"></div>
+                <div class="money b50"></div>
+                <div class="money b20"></div>
+                <div class="money b10"></div>
+                <div class="money b5"></div>
+            </div>
+            <script src="script.js"></script>
+        </div>
+    </body>
+</html>

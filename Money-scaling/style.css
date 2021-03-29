@@ -1,0 +1,116 @@
+:root{
+    --principal: rgba(128, 128, 128, 0.3);
+    --secondaire: rgba(8, 8, 32, 1);
+    --surbrillance: rgba(8, 8, 8s, 1);
+}
+
+body {
+    background-color: var(--secondaire);
+    color: var(--surbrillance);
+}
+
+#parametres {
+    background-color: var(--principal);
+    float: right;
+    flex: 10%;
+    min-height: 150px;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    margin: 15px;
+    border: white 1px;
+}
+
+#visualisation {
+    background-color: var(--principal);
+    float: right;
+    flex: 80%;
+    min-height: 150px;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    margin: 15px;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+@media screen and (max-width: 850px) { 
+    #container {
+        flex-direction: column;
+    }
+}
+
+.money {
+    display: inline-block;
+    width: 100px;
+    height: 51px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 5px;
+}
+
+.b200 {
+    background-image: url(billets/200.jpg);
+}
+
+.b100 {
+    background-image: url(billets/100.jpg);
+}
+
+.b50 {
+    background-image: url(billets/50.jpg);
+}
+
+.b20 {
+    background-image: url(billets/20.jpg);
+}
+
+.b10 {
+    background-image: url(billets/10.jpg);
+}
+
+.b5 {
+    background-image: url(billets/5.jpg);
+}
+
+input{
+    width: 80%;
+    border: none;
+    font-size: 22px;
+    background-color: var(--secondaire);
+    color: var(--principal);
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+}
+
+input[type="checkbox"]{
+    width: auto;
+    border: none;
+    font-size: 22px;
+    background-color: var(--secondaire);
+    color: var(--principal);
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+}
+
+mark {
+    background-color: var(--secondaire);
+    color: var(--principal);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 1px;
+}
+
+label{
+    margin: 5px;
+}
