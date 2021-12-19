@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>SNIR Cup</title>
+	<link rel="stylesheet" href="framework/mini-default.css"/>
+	<link rel="stylesheet" href="framework/animate.min.css"/>
+    <link id="icon" rel="icon" href="imgs/lla-ico.ico"/>
+    <style>
+        body{
+            background-image: url('imgs/fond.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: bottom right;
+            background-size: 20%;
+        }
+        .bdd{
+            height: 100px;
+        }
+        .bddc{
+            text-align: center;
+        }
+        select{
+            width: 98%;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js" style="z-index: -1;position: absolute;width: 100%;"></div>
+	<header>
+		<a href="index.html" class="logo animate__animated animate__flash">SNIR Cup • MonCO2</a>
+		<a href="index.html" class="button"><span class="icon-home"></span> MonCO2</a>
+		<a href="a_propos.html" class="button"><span class="icon-help"></span> A propos</a>
+	</header>
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2 animate__animated animate__fadeInLeft">
+			<form>
+                <h1>
+                    <span class="icon-user"></span> Vos données personnelles
+				</h1>
+				<h2>
+                    Alimentation
+				</h2>
+                <h3>
+                    Alimentation exclusive personnel
+				</h3>
+                <select id="alimentation" onChange="CalculerCO2();">
+                    <option class="doc">Boeuf (steak haché) • 41.43 kg CO2 eq/kg • 2400 calories/kg</option>
+                    <option class="doc">Porc (brochette de porc) • 6.31 kg CO2 eq/kg • 1750 calories/kg</option>
+                    <option class="doc">Poulet (filet de poulet) • 5.47 kg CO2 eq/kg • 1150 calories/kg</option>
+                    <option class="doc">Poisson (accra de poisson) • 5.25 kg CO2 eq/kg • 2750 calories/kg</option>
+                    <option class="doc">Blé (boulgour de blé) • 0.36 kg CO2 eq/kg • 3450 calories/kg</option>
+                </select>
+                <h3>
+                    Genre
+				</h3>
+                <select id="genre" onChange="CalculerCO2();">
+                    <option class="doc">Homme adulte • 2500 calories/jour</option>
+                    <option class="doc">Femme adulte • 2000 calories/jour</option>
+                </select>
+                <hr/>
+                <h2>
+                    Consommation électrique personnel <small>≃ 0.05 kg CO2 eq/kWh • France</small>
+				</h2>
+                <select id="elec" onChange="CalculerCO2();">
+                    <option class="doc">Normal • 14 kWh/jour</option>
+                    <option class="doc">Faible • 8 kWh/jour</option>
+                    <option class="doc">Importante • 20 kWh/jour</option>
+                </select>
+			</form>
+		</div>
+        <div class="col-md-3 animate__animated animate__bounceIn">
+			<form>
+				<h1>
+                    <span class="icon-info"></span> Calcul effectué à partir des données de
+				</h1>
+                <div class="bddc">
+                    <img src="imgs/ademe.jpg" class="bdd"/>
+                    <br/>
+                    <b><a href="https://agribalyse.ademe.fr/" target="_blank">Agribalyse</a></b> est une base de données produite par l'ADEME permettant de connaître l'impact environnemental des produits agricoles en suivant la méthode de l'analyse du cycle de vie. 
+                </div>
+                <hr/>
+                <div class="bddc">
+                    <img src="imgs/rte.png" class="bdd"/>
+                    <br/>
+                    <b><a href="https://www.rte-france.com/eco2mix" target="_blank">ECO2mix</a></b> est un outil simple d'utilisation créé par RTE pour aider les consommateurs à mieux connaître et mieux consommer l'électricité. 
+                </div>
+			</form>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-md-8 col-md-offset-2 animate__animated animate__fadeInUp" id="resultat">
+			<form>
+                <h1>
+                    <span class="icon-mail"></span> Vos résultats
+                </h1>
+				<h2>
+                    Votre émission journalière est de <mark id="totalCO2">4.31 kg CO2/jour</mark>
+                </h2>
+                <h3>
+                    dont <mark id="alimCO2">3.31 kg CO2/jour</mark> pour votre alimentation et <mark id="elecCO2">1.00 kg CO2/jour</mark> pour votre consommation électrique
+                </h3>
+                <hr/>
+				<h4>À titre indicatif, le minimum ici atteignable était de <mark class="tertiary">0.61 kg CO2/jour</mark> et le maximum de <mark class="secondary">44.16 kg CO2/jour</mark>.</h4>
+                <div class="bddc">
+                    <mark class="tag"><em>Utiliser ces indicateurs pour optimiser vos émissions de CO2.</em></mark>
+                </div>
+            </form>
+		</div>
+	</div>
+    <script src="framework/particles.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+particlesJS("particles-js",{
+    "particles": {
+        "number": {
+        "value": 10,
+        "density": {
+            "enable": false,
+            "value_area": 800
+        }
+        },
+        "color": {
+        "value": "#ffffff"
+        },
+        "shape": {
+        "type": "image",
+        "stroke": {
+            "width": 0,
+            "color": "#000000"
+        },
+        "polygon": {
+            "nb_sides": 5
+        },
+        "image": {
+            "src": "imgs/lla-png.png",
+            "width": 300,
+            "height": 300
+        }
+        },
+        "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+            "enable": false,
+            "speed": 40,
+            "opacity_min": 0.1,
+            "sync": false
+        }
+        },
+        "size": {
+        "value": 50,
+        "random": true,
+        "anim": {
+            "enable": true,
+            "speed": 5,
+            "size_min": 20,
+            "sync": false
+        }
+        },
+        "line_linked": {
+        "enable": false,
+        "distance": 100,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+        },
+        "move": {
+        "enable": true,
+        "speed": 1,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "bounce",
+        "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+        }
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+        "onhover": {
+            "enable": false,
+            "mode": "repulse"
+        },
+        "onclick": {
+            "enable": false,
+            "mode": "repulse"
+        },
+        "resize": true
+        },
+        "modes": {
+        "grab": {
+            "distance": 400,
+            "line_linked": {
+            "opacity": 1
+            }
+        },
+        "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+        },
+        "repulse": {
+            "distance": 200
+        },
+        "push": {
+            "particles_nb": 4
+        },
+        "remove": {
+            "particles_nb": 2
+        }
+        }
+    },
+    "retina_detect": true,
+});
+    </script>
+</body>
+</html>
